@@ -4,17 +4,35 @@
 
 %option noyywrap
 	
-NUMBER=[0-9]
-LETTER=[A-Za-z]
+NUMBER [0-9]
+LETTER [A-Za-z]
+L_BRACKET \[
+R_BRACKET \]
+L_PAREN \(
+R_PAREN \)
+L_BRACE \{
+R_BRACE \}
 
 %%
 
 [ \n\t\r]
+(\/\*([^\*]|[\r\n]|(\*+([^\*\/]|[\r\n])))*\*+\/)|(\/\/.*)
+, { return TOKEN_COMMA; }
+\'{LETTER}\' { return TOKEN_CHAR_LITERAL; }
+\"(\\.|[^"])*\" { return TOKEN_STRING_LITERAL; }
+{L_BRACE} { return TOKEN_L_BRACE; }
+{R_BRACE} { return TOKEN_R_BRACE; }
+{NUMBER}+ { return TOKEN_INT_LITERAL; }
+{L_BRACKET} { return TOKEN_L_BRACKET; }
+{R_BRACKET} { return TOKEN_R_BRACKET; }
+{L_PAREN} { return TOKEN_L_PAREN; }
+{R_PAREN} { return TOKEN_R_PAREN; }
+\: { return TOKEN_COLON; }
 \^ { return TOKEN_EXP; }
 && { return TOKEN_AND; }
 \|\| { return TOKEN_OR; }
 \+ { return TOKEN_ADD; }
-- { return TOKEN_SUBTRACT; }
+- { return TOKEN_MINUS; }
 \+\+ { return TOKEN_INCREMENT; }
 -- { return TOKEN_DECREMENT; }
 % { return TOKEN_MODULUS; }
@@ -43,7 +61,7 @@ while { return TOKEN_WHILE; }
 char { return TOKEN_CHAR; }
 string { return TOKEN_STRING; }
 ; { return TOKEN_SEMICOLON; }
-(\/\*([^\*]|[\r\n]|(\*+([^\*\/]|[\r\n])))*\*+\/)|(\/\/.*) { return TOKEN_COMMENT; }
+(_|{LETTER})(_|{LETTER}|{NUMBER})* { return TOKEN_IDENT; }
 . { return ERROR; }
 
 %%

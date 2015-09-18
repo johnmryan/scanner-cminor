@@ -1,15 +1,46 @@
-while (true) {
-	if (1) {
-		print(void);
-		function function;
-	}
-boolean;
-for (integer)
-return
+square: function integer ( x: integer ) = {
+	return x^2;
+}
 
-// Hello there
-// hi
-/what6
-/* Hello there dude
-** hey
+printarray: function void ( a: array [] integer, size: integer ) = {
+	i: integer;
+	for( i=0;i<size;i++) {
+		print a[i], "\n";
+	}
+}
+
+these are ident
+
+[ ] ( )
+
+------
+-
+---
+--
+----
+
+string
+1534
+'a'
+Notre Dame Dome Not Notre
+"Notre\nDame";
+>=
+@
+// Hello this is a comment
+/* Hello
+** hi
 */
+
+x: integer;
+y: integer = 123;
+b: boolean = false;
+c: char    = 'q';
+s: string  = "hello cminor\n";
+
+""
+"hello
+world"
+
+"\x"
+
+"\n"

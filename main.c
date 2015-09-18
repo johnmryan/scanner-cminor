@@ -2,6 +2,7 @@
 #include "token.h"
 
 extern FILE* yyin;
+extern char* yytext;
 extern int yylex(void);
 
 int main(int argc, char **argv) {
@@ -16,8 +17,13 @@ int main(int argc, char **argv) {
 	token_t t;
 	while (1) {
 		t = yylex();
+		if (t == TOKEN_STRING_LITERAL) {
+			printf("%s %s\n", token_string(t), yytext);
+			continue;
+		}
 		if (!t) break;
 		printf("%s\n",token_string(t));
+		//printf("%s\n", yytext);
 	}
 }
 	

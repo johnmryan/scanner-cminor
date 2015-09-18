@@ -2,11 +2,23 @@
 
 const char* token_string(token_t t) {
 	switch(t) {
+		case TOKEN_COMMA: return "COMMA";
+		case TOKEN_CHAR_LITERAL: return "CHARACTER_LITERAL";
+		case TOKEN_STRING_LITERAL: return "STRING_LITERAL";
+		case TOKEN_L_BRACE: return "LEFT_BRACE";
+		case TOKEN_R_BRACE: return "RIGHT_BRACE";
+		case TOKEN_INT_LITERAL: return "INTEGER_LITERAL";
+		case TOKEN_R_PAREN: return "R_PAREN";
+		case TOKEN_L_PAREN: return "L_PAREN";
+		case TOKEN_R_BRACKET: return "R_BRACKET";
+		case TOKEN_L_BRACKET: return "L_BRACKET";
+		case TOKEN_COLON: return "COLON";
+		case TOKEN_IDENT: return "IDENTIFIER";
 		case TOKEN_EXP: return "EXPONENT";
 		case TOKEN_AND: return "AND";
 		case TOKEN_OR: return "OR";
 		case TOKEN_ADD: return "ADD";
-		case TOKEN_SUBTRACT: return "SUBTRACT";
+		case TOKEN_MINUS: return "MINUS";
 		case TOKEN_INCREMENT: return "INCREMENT";
 		case TOKEN_DECREMENT: return "DECREMENT";
 		case TOKEN_MODULUS: return "MODULUS";
@@ -36,6 +48,6 @@ const char* token_string(token_t t) {
 		case TOKEN_STRING: return "STRING";
 		case TOKEN_SEMICOLON: return "SEMICOLON";
 		case TOKEN_COMMENT: return "COMMENT";
-		case ERROR: return "ERROR";
+		case ERROR: return "scan error: ";
 	}
 }
