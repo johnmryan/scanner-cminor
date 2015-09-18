@@ -13,39 +13,12 @@ printarray: function void ( a: array [] integer, size: integer ) = {
 these are ident
 
 [ ] ( )
-
-------
--
----
---
-----
-
-string
-1534
-'a'
-Notre Dame Dome Not Notre
-"Notre\nDame";
->=
-@
-// Hello this is a comment
-/* Hello
-** hi
-*/
-
-x: integer;
-y: integer = 123;
-b: boolean = false;
-c: char    = 'q';
-s: string  = "hello cminor\n";
-
-""
-"\x"
-
+"Testcases\n-----------------------"
+5Hello
+"
+@#
+'@'
+"\"
+"\\"
 "\n"
-ident
-"asjksjadh\" dnksjd"
-"hello\nthere"
-
-string s = "hello\nworld"
-"hello
-world"
+"iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"

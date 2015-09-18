@@ -7,7 +7,7 @@ extern char* yytext;
 extern int yylex(void);
 
 char* removeQuotes(char* s);
-char temp[256];
+char temp[512];
 
 int main(int argc, char **argv) {
 	//enough arguments
@@ -34,9 +34,34 @@ int main(int argc, char **argv) {
 
 char* removeQuotes(char* s) {
   int i = 1;
+	int num_combinations = 0;
   for (i; i < strlen(s)-1; i++) {
-  	temp[i-1] = s[i];
+		if (s[i] == '\\') {
+			if (s[i+1] == 'n') {
+				temp[i-1-num_combinations] = '\n';
+				num_combinations++;
+				i++;
+				continue;
+			}
+			else if (s[i+1] == '0') {
+				temp[i-1-num_combinations] = '\0';
+				num_combinations++;
+				i++;
+				continue;
+			}
+			//backwhack and any other character
+			else {
+				temp[i-1-num_combinations] = s[i+1];
+				num_combinations++;
+				i++;
+				continue;
+			}
+		}
+  	temp[i-1-num_combinations] = s[i];
+		if (i > 255) {
+			return "scan error: string too large";
+		}
   }
-  temp[i-1] = '\0';
+  temp[i-1-num_combinations] = '\0';
  	return temp;
 }
