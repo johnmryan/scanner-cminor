@@ -11,6 +11,22 @@ LETTER=[A-Za-z]
 
 [ \n\t\r]
 \^ { return TOKEN_EXP; }
+&& { return TOKEN_AND; }
+\|\| { return TOKEN_OR; }
+\+ { return TOKEN_ADD; }
+- { return TOKEN_SUBTRACT; }
+\+\+ { return TOKEN_INCREMENT; }
+-- { return TOKEN_DECREMENT; }
+% { return TOKEN_MODULUS; }
+\/ { return TOKEN_DIVISION; }
+\* { return TOKEN_MULT; }
+= { return TOKEN_ASSIGN; }
+\< { return TOKEN_LT; }
+\> { return TOKEN_GT; }
+\!= { return TOKEN_NE; }
+== { return TOKEN_EQUAL; }
+\>= { return TOKEN_GE; }
+\<= { return TOKEN_LE; }
 array { return TOKEN_ARRAY; }
 else { return TOKEN_ELSE; }
 false { return TOKEN_FALSE; }
