@@ -19,7 +19,7 @@ R_BRACE \}
 (\/\*([^\*]|[\r\n]|(\*+([^\*\/]|[\r\n])))*\*+\/)|(\/\/.*)
 , { return TOKEN_COMMA; }
 \'{LETTER}\' { return TOKEN_CHAR_LITERAL; }
-\"(\\.|[^\"])*\" { return TOKEN_STRING_LITERAL; }
+\"(\\.|[^\"\n])*\" { return TOKEN_STRING_LITERAL; }
 {L_BRACE} { return TOKEN_L_BRACE; }
 {R_BRACE} { return TOKEN_R_BRACE; }
 {NUMBER}+ { return TOKEN_INT_LITERAL; }

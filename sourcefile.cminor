@@ -39,11 +39,13 @@ c: char    = 'q';
 s: string  = "hello cminor\n";
 
 ""
-"hello
-world"
-
 "\x"
 
 "\n"
 ident
 "asjksjadh\" dnksjd"
+"hello\nthere"
+
+string s = "hello\nworld"
+"hello
+world"

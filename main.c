@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 	while (1) {
 		t = yylex();
 		//if a string literal, print val and continue through loop
-		if (t == TOKEN_STRING_LITERAL) {
+		if (t == TOKEN_STRING_LITERAL || t == TOKEN_CHAR_LITERAL) {
 			printf("%s %s\n", token_string(t), removeQuotes(yytext));
 			continue;
 		}
@@ -37,6 +37,6 @@ char* removeQuotes(char* s) {
   for (i; i < strlen(s)-1; i++) {
   	temp[i-1] = s[i];
   }
-  temp[strlen(temp)-1] = '\0';
+  temp[i-1] = '\0';
  	return temp;
 }
