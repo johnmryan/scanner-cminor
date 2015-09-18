@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "token.h"
 
@@ -26,6 +27,10 @@ int main(int argc, char **argv) {
 			printf("%s %s\n", token_string(t), removeQuotes(yytext));
 			continue;
 		}
+		if (t == ERROR) {
+			fprintf(stderr,"%s%s is not valid.\n", token_string(t), yytext);
+			exit(1);
+		}	
 		if (!t) break;
 		printf("%s\n",token_string(t));
 		//printf("%s\n", yytext);
@@ -59,7 +64,8 @@ char* removeQuotes(char* s) {
 		}
   	temp[i-1-num_combinations] = s[i];
 		if (i > 255) {
-			return "scan error: string too large";
+			fprintf(stderr,"scan error: string too large\n");
+			exit(1);
 		}
   }
   temp[i-1-num_combinations] = '\0';
