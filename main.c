@@ -27,6 +27,18 @@ int main(int argc, char **argv) {
 			printf("%s %s\n", token_string(t), removeQuotes(yytext));
 			continue;
 		}
+		if (t == TOKEN_IDENT) {
+			if (strlen(yytext) > 256) {
+				fprintf(stderr, "%s %s is too long.\n", token_string(t), yytext);
+				exit(1);
+			}
+		}
+		if (t == TOKEN_INT_LITERAL) {
+			if (strlen(yytext) > 19) {
+				fprintf(stderr, "%s %s is too large.\n", token_string(t), yytext);
+				exit(1);
+			}
+		}
 		if (t == ERROR) {
 			fprintf(stderr,"%s%s is not valid.\n", token_string(t), yytext);
 			exit(1);
