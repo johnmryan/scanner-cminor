@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 	if (argc > 1)
 		yyin = fopen( argv[2], "r");
 	else {
-		printf("Please provide the correct number of arguments.\n");
+		printf("cminor: missing file operand\n");
 		return 0;
 	}
 	//while 1 for main
